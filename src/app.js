@@ -18,9 +18,9 @@ app.use("/api/", todoRoutes);
 
 //configuration for deploying app, getting the data from client
 
-app.use(express.static(path.join(__dirname, "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+app.get("*", function (req, res) {
+  const index = path.join(__dirname, "build", "index.html");
+  res.sendFile(index);
 });
 
 //connect to port and mongodb
