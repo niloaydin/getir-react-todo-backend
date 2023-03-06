@@ -16,13 +16,6 @@ app.use(express.json());
 //set the api call routes
 app.use("/api/", todoRoutes);
 
-//configuration for deploying app, getting the data from client
-
-app.get("*", function (req, res) {
-  const index = path.join(__dirname, "build", "index.html");
-  res.sendFile(index);
-});
-
 //connect to port and mongodb
 
 app.listen(PORT, () => {
