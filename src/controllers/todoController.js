@@ -15,6 +15,11 @@ const addTodo = async (req, res) => {
       text: req.body.text,
       completed: req.body.completed,
     });
+
+    if (!newTodo.text) {
+      return res.sendStatus(400);
+    }
+
     return res.status(201).json(newTodo);
   } catch (error) {
     return res.status(400).json({ message: error.message });
